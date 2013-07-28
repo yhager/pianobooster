@@ -189,7 +189,7 @@ void CMidiTrack::readTimeSignatureEvent()
     byte_t timeSigNumerator;
     byte_t timeSigDenominator;
     CMidiEvent event;
-    byte_t b3, b4;
+    // byte_t b3, b4;
 
     len = readVarLen();
     if (len!=4)
@@ -211,8 +211,8 @@ void CMidiTrack::readTimeSignatureEvent()
     }
     len = (1<<timeSigDenominator);
 
-    b3 = readByte();           /* Ignore the last bytes */
-    b4 = readByte();           /* Ignore the last bytes */
+    /*b3 = */readByte();           /* Ignore the last bytes */
+    /*b4 = */readByte();           /* Ignore the last bytes */
     event.metaEvent(readDelaTime(), MIDI_PB_timeSignature, timeSigNumerator, 1<<timeSigDenominator);
     m_trackEventQueue->push(event);
     ppDEBUG_TRACK((4,"Key Signature %d/%d metronome %d quarter %d", timeSigNumerator, 1<<timeSigDenominator, b3, b4));
