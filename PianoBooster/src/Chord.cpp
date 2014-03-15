@@ -55,7 +55,7 @@ whichPart_t CNote::findHand(int midiNote, int midiChannel, int whichChannel, whi
     {
         if (midiChannel == whichChannel)
         {
-            if (midiNote >= MIDDLE_C)
+            if (midiNote > (MIDDLE_C + 2))
                 hand = PB_PART_right;
             else
                 hand = PB_PART_left;
@@ -191,4 +191,3 @@ bool CFindChord::findChord(CMidiEvent midi, int channel, whichPart_t part)
     }
     return foundChord;
 }
-
